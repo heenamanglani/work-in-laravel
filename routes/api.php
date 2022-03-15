@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ScootersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,6 @@ use Illuminate\Support\Facades\Route;
  */
 Route::group(['middleware' => ['api_token']], function() {
     Route::resource('/users', UsersController::class);
+    Route::resource('/scooters', ScootersController::class);
+    Route::resource('/trips', ScootersController::class);
 });
