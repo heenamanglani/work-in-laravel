@@ -17,17 +17,15 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        for($i=1; $i<=10; $i++)
-        {
+        for ($i = 1; $i <= 10; $i++) {
             DB::table('users')->insert([
-                'username' => Str::random(10),
-                'uuid' => "UUID".rand(1000,9999),
-                'email' => Str::random(10).'@gmail.com',
-                'password' => Hash::make('password'),
+                'username'   => Str::random(10),
+                'uid'        => Str::uuid()->toString(),
+                'email'      => Str::random(10) . '@gmail.com',
+                'password'   => Hash::make('password'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
         }
-
     }
 }
