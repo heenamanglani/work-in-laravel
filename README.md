@@ -100,7 +100,10 @@ composer install
 sail artisan key:generate
 sail artisan jwt:generate
 sail artisan migrate
-sail artisan db:seed
+sail artisan db:seed --class=UserSeeder
+sail artisan db:seed --class=ScootersTableSeeder
+sail artisan db:seed --class=TripsSeeder
+sail artisan db:seed --class=TripUpdatesSeeder 
 sail up
 ```
 
@@ -108,15 +111,13 @@ The api can be accessed at [http://localhost:8084/api](http://localhost:8084/api
 
 ## API Specification
 
-This application adheres to the api specifications set by the [Thinkster](https://github.com/gothinkster) team. This
-helps mix and match any backend with any other frontend without conflicts.
+Postman API bundle has been shared, without writing documentation in Postman just test calls.
 
-> [Full API Spec](https://github.com/gothinkster/realworld/tree/master/api)
+> [Full API Spec](https://www.getpostman.com/collections/c9540d64db70c5d04631)
 
 
 ----------
 
-# Code overview
 
 ## Dependencies
 
@@ -127,19 +128,13 @@ helps mix and match any backend with any other frontend without conflicts.
 - `app` - Contains all the Eloquent models
 - `app/Http/Controllers` - Contains all the api controllers
 - `app/Http/Middleware` - Contains the API auth middleware
-- `app/RealWorld/Favorite` - Contains the files implementing the favorite feature
-- `app/RealWorld/Filters` - Contains the query filters used for filtering api requests
-- `app/RealWorld/Follow` - Contains the files implementing the follow feature
-- `app/RealWorld/Paginate` - Contains the pagination class used to paginate the result
-- `app/RealWorld/Slug` - Contains the files implementing slugs to articles
-- `app/RealWorld/Transformers` - Contains all the data transformers
 - `config` - Contains all the application configuration files
 - `database/factories` - Contains the model factory for all the models
 - `database/migrations` - Contains all the database migrations
 - `database/seeds` - Contains the database seeder
 - `routes` - Contains all the api routes defined in api.php file
 - `tests` - Contains all the application tests
-- `tests/Feature/Api` - Contains all the api tests
+
 
 ## Environment variables
 
@@ -177,3 +172,7 @@ Refer the [api specification](#api-specification) for more info.
 This applications uses hardcoded api key in .env file and sending as header in API's as `api_token` to handle authentication. 
 
 ----------
+
+## Fire up PHPMYADMIN - Docker
+
+-  From Docker Dashboard, you can also run PHPMYADMIN or directly in browser at http://localhost:8085/ using credentials kept in ASSUMPTIONS.MD
