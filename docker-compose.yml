@@ -3,10 +3,11 @@ version: '3'
 services:
     laravel.test:
         build:
-            context: ./vendor/laravel/sail/runtimes/8.1
+            context: ./docker/8.1
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
+                XDEBUG: '${XDEBUG}'
         image: sail-8.1/app
         extra_hosts:
             - 'host.docker.internal:host-gateway'
@@ -24,6 +25,13 @@ services:
             - sail
         depends_on:
             - mysql
+            - selenium
+    selenium:
+        image: 'selenium/standalone-chrome'
+        volumes:
+            - '/dev/shm:/dev/shm'
+        networks:
+            - sail
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -43,6 +51,25 @@ services:
             test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
             retries: 3
             timeout: 5s
+    mysql-dusk:
+        image: 'mysql/mysql-server:8.0'
+        ports:
+            - '3307:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_DATABASE: 'scootinaboot-testing'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        volumes:
+            - 'sailmysqldusk:/var/lib/mysql'
+        networks:
+            - sail
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}" ]
+            retries: 3
+            timeout: 5s
     phpmyadmin:
         image: 'phpmyadmin:latest'
         ports:
@@ -60,4 +87,6 @@ networks:
         driver: bridge
 volumes:
     sail-mysql:
+        driver: local
+    sailmysqldusk:
         driver: local

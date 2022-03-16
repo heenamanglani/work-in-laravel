@@ -100,10 +100,7 @@ composer install
 sail artisan key:generate
 sail artisan jwt:generate
 sail artisan migrate
-sail artisan db:seed --class=UserSeeder
-sail artisan db:seed --class=ScootersTableSeeder
-sail artisan db:seed --class=TripsSeeder
-sail artisan db:seed --class=TripUpdatesSeeder 
+sail artisan db:seed
 sail up
 ```
 
@@ -175,4 +172,12 @@ This applications uses hardcoded api key in .env file and sending as header in A
 
 ## Fire up PHPMYADMIN - Docker
 
--  From Docker Dashboard, you can also run PHPMYADMIN or directly in browser at http://localhost:8085/ using credentials kept in ASSUMPTIONS.MD
+- From Docker Dashboard, you can also run PHPMYADMIN or directly in browser at http://localhost:8085/ using credentials kept in ASSUMPTIONS.MD
+
+## Perform Tests
+
+Run command ``sail test`` to check the tests
+
+- if need to see test coverage then run 
+  - `` sail test  --coverage-html tests/coverage``
+  - after running the above command index.html would have been created under 'tests/coverage/index.html' - run it it browser by right clicking on it you will see the coverage of tests covered.

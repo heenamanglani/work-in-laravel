@@ -22,7 +22,7 @@ class TripUpdatesController extends Controller
 
         $input = $request->all();
 
-        $alreadyEndedTrip = Trips::where('trip_id', '=', $trip_id)
+        $alreadyEndedTrip = Trips::where('trips_id', '=', $trip_id)
             ->where('event_type', '=', 'end')->get()->toArray();
 
         if (count($alreadyEndedTrip) > 0) {

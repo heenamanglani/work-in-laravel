@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['api_token']], function () {
     Route::get('/users', [UsersController::class, 'index']);
     Route::get('/scooters', [ScootersController::class, 'index']);
+    Route::post('/scooters/search/{filter?}', [ScootersController::class, 'findScootersWithinRange']);
     Route::get('/scooters/occupied', [ScootersController::class, 'fetchAllOccupiedScooters']);
     Route::get('/scooters/free', [ScootersController::class, 'fetchAllFreeScooters']);
     Route::get('/trips/allupdates', [TripsController::class, 'getTripsWithUpdates']);
