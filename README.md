@@ -51,7 +51,7 @@ You can now access the server at http://localhost:8000
     php artisan key:generate
 
 **Make sure you set the correct database connection information before running the
-migrations** [Environment variables](#environment-variables)
+migrations**
 
     php artisan migrate
     php artisan serve
@@ -96,7 +96,6 @@ composer install
 
 ```
 sail artisan key:generate
-sail artisan jwt:generate
 sail artisan migrate
 sail artisan db:seed
 sail up
@@ -170,7 +169,7 @@ This applications uses hardcoded api key in .env file and sending as header in A
 
 ## Fire up PHPMYADMIN - Docker
 
-- From Docker Dashboard, you can also run PHPMYADMIN or directly in browser at http://localhost:8085/ using credentials kept in ASSUMPTIONS.MD
+- From Docker Dashboard, you can also run PHPMYADMIN or directly in browser at http://localhost:8085/ using credentials kept in ASSUMPTIONS.MD or .env
 
 ## Perform Tests
 

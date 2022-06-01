@@ -15,6 +15,8 @@ class Controller extends BaseController
     /**
      * success response method.
      *
+     * @param $result
+     * @param $message
      * @return JsonResponse
      */
     public function sendResponse($result, $message)
