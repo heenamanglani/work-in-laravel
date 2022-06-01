@@ -1,4 +1,4 @@
-<p align="center" style="font-size: xxx-large">Scootin Aboot</p>
+<p align="center" style="font-size: xxx-large">Work in laravel</p>
 
 
 # Getting started
@@ -14,11 +14,11 @@
 
 Clone the repository
 
-    git clone https://github.com/heenamanglani/scootinaboot.git
+    git clone https://github.com/heenamanglani/work-in-laravel.git
 
 Switch to the repo folder
 
-    cd scootinaboot
+    cd work-in-laravel
 
 Install all the dependencies using composer
 
@@ -44,8 +44,8 @@ You can now access the server at http://localhost:8000
 
 **TL;DR command list**
 
-    git clone https://github.com/heenamanglani/scootinaboot.git
-    cd scootinaboot
+    git clone https://github.com/heenamanglani/work-in-laravel.git
+    cd work-in-laravel
     composer install
     cp .env.example .env
     php artisan key:generate
@@ -81,8 +81,8 @@ To install with [Docker](https://www.docker.com), run following commands:
 > Assumption - Docker is installed in your machine, if not please install.
 
 ```
-git clone https://github.com/heenamanglani/scootinaboot.git
-cd scootinaboot
+git clone https://github.com/heenamanglani/work-in-laravel.git
+cd work-in-laravel
 cp .env.example.docker .env
 composer install
 ./vendor/bin/sail up - This will fire up docker container
