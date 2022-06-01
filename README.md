@@ -1,7 +1,5 @@
 <p align="center" style="font-size: xxx-large">Scootin Aboot</p>
 
-A task shared by Nord Security :)
-----------
 
 # Getting started
 
